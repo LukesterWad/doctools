@@ -4,6 +4,7 @@ options=(
   "backup"
   "diff"
   "permit"
+  "swap"
   "todo"
   "update"
 )
@@ -16,7 +17,7 @@ fi
 
 result="$(for option in "${options[@]}"; do echo "${option}"; done | fzf -1 -0 --exact --query="^${@}")"
 
-if [[ "${result}" != "" && "$(cat "${HOME}/.config/doctools.conf" | wc -l)" == "2" ]]
+if [[ "${result}" != "" ]]
 then
   ldir="$(head -n 1 "${HOME}/.config/doctools.conf")"
   bdir="$(tail -n 1 "${HOME}/.config/doctools.conf")"
