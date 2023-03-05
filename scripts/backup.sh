@@ -5,5 +5,5 @@ bdir="${2}"
 
 if [[ "$(./scripts/diff.sh "${ldir}/" "${bdir}/")" != "" ]]; then
   echo "backing up"
-  rsync -rtuv ${ldir}/* ${bdir}/
+  rsync -rtuv --perms --chmod=644 ${ldir}/* ${bdir}/
 fi
